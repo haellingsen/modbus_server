@@ -1,7 +1,7 @@
 #!./venv/bin/python
 from pyModbusTCP.server import ModbusServer, DataBank
 from time import sleep
-from random import uniform
+from random import uniform, random
 import os, json, itertools
 import http.server
 import socketserver
@@ -13,9 +13,12 @@ MODBUSPORT = 502
 WEBDIRECTORY = "webui"
 MODBUS_BITCOUNT = 100
 MODBUS_WORDCOUNT = 100
-MODBUS_ENABLE_RANDOM_NUMBER_POPULATION = True
-MODBUS_RANDOM_NUMBER_START = 20
-MODBUS_RANDOM_NUMBER_COUNT = 10
+MODBUS_ENABLE_RANDOM_NUMBER_POPULATION_BITS = True
+MODBUS_ENABLE_RANDOM_NUMBER_POPULATION_WORDS = True
+MODBUS_RANDOM_NUMBER_COUNT_BITS = MODBUS_BITCOUNT
+MODBUS_RANDOM_NUMBER_COUNT_WORDS = MODBUS_WORDCOUNT
+MODBUS_RANDOM_NUMBER_START_BITS = 25
+MODBUS_RANDOM_NUMBER_START_WORDS = 25
 MODBUS_PRINT_TO_TERMINAL_ENABLED = False
 httpServerThread=""
 
@@ -47,8 +50,11 @@ def setupAndStartModbusServer():
         print("Modbus server is online")
 
         while True:
-            if MODBUS_ENABLE_RANDOM_NUMBER_POPULATION:
-                DataBank.set_words(MODBUS_RANDOM_NUMBER_START, [uniform(0,65536) for i in range(MODBUS_RANDOM_NUMBER_COUNT)])
+            if MODBUS_ENABLE_RANDOM_NUMBER_POPULATION_WORDS:
+                DataBank.set_words(MODBUS_RANDOM_NUMBER_START_WORDS, [uniform(0,65536) for i in range(MODBUS_RANDOM_NUMBER_COUNT_WORDS)])
+            if MODBUS_ENABLE_RANDOM_NUMBER_POPULATION_BITS:
+                DataBank.set_bits(MODBUS_RANDOM_NUMBER_START_BITS, [random() < 0.5 for i in range(MODBUS_RANDOM_NUMBER_COUNT_BITS)])
+            
             words = dict(list(enumerate(DataBank.get_words(0, MODBUS_WORDCOUNT))))
             bits = dict(list(enumerate(DataBank.get_bits(0, MODBUS_BITCOUNT)))) 
             server_data = {"bits": bits, "words": words, "timestamp": datetime.now().isoformat()}
