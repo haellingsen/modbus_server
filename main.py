@@ -16,6 +16,7 @@ MODBUS_WORDCOUNT = 100
 MODBUS_ENABLE_RANDOM_NUMBER_POPULATION = True
 MODBUS_RANDOM_NUMBER_START = 20
 MODBUS_RANDOM_NUMBER_COUNT = 10
+MODBUS_PRINT_TO_TERMINAL_ENABLED = False
 httpServerThread=""
 
 def dict_to_json(filename, _dict):
@@ -52,11 +53,12 @@ def setupAndStartModbusServer():
             bits = dict(list(enumerate(DataBank.get_bits(0, MODBUS_BITCOUNT)))) 
             server_data = {"bits": bits, "words": words, "timestamp": datetime.now().isoformat()}
             dict_to_json("./webui/modbus.json", server_data)
-    #        os.system("cls" if os.name == "nt" else "clear")
-    #        print(json.dumps(bits, indent = 1), json.dumps(words, indent = 1))
-    #        print(f"{'Bits':<20}{'Words'}")
-    #        for d1, d2 in itertools.zip_longest(sorted(bits), sorted(words), fillvalue='0'): 
-    #            print(f"{d1:>2}: {bits.get(d1, 'NA'):<15} {d2:>2}: {words.get(d2, 'NA')}")
+            if MODBUS_PRINT_TO_TERMINAL_ENABLED:
+                os.system("cls" if os.name == "nt" else "clear")
+                print(json.dumps(bits, indent = 1), json.dumps(words, indent = 1))
+                print(f"{'Bits':<20}{'Words'}")
+                for d1, d2 in itertools.zip_longest(sorted(bits), sorted(words), fillvalue='0'): 
+                    print(f"{d1:>2}: {bits.get(d1, 'NA'):<15} {d2:>2}: {words.get(d2, 'NA')}")
             sleep(0.1)
 
     except Exception as e:
@@ -66,8 +68,8 @@ def setupAndStartModbusServer():
             print("Modbus server shut down")
 
 def main():
-    #setupThreadAndStartWebServer()
-    #sleep(2)
+    setupThreadAndStartWebServer()
+    sleep(2)
     setupAndStartModbusServer()
 
 if __name__ == '__main__':
