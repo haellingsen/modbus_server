@@ -69,9 +69,9 @@ def setupAndStartModbusServer():
             # if welding start goes HI. Set robot motion release HI
             if bits.get(0):
                 sleep(0.5)
-                DataBank.set_bits(9, [True])
+                DataBank.set_words(0, [256])
             else:
-                DataBank.set_bits(9, [False])
+                DataBank.set_words(0, [256])
             sleep(0.1)
 
     except Exception as e:
