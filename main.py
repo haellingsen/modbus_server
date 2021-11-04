@@ -66,12 +66,9 @@ def setupAndStartModbusServer():
                 for d1, d2 in itertools.zip_longest(sorted(bits), sorted(words), fillvalue='0'): 
                     print(f"{d1:>2}: {bits.get(d1, 'NA'):<15} {d2:>2}: {words.get(d2, 'NA')}")
             
-            # if welding start goes HI. Set robot motion release HI
-            if bits.get(0):
-                sleep(0.5)
-                DataBank.set_words(0, [256])
-            else:
-                DataBank.set_words(0, [256])
+            # TODO if welding start goes HI. Set robot motion release HI. 
+            # Need to route different modbus fc codes to different addres ranges internally first
+            
             sleep(0.1)
 
     except Exception as e:
