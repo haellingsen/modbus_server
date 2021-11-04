@@ -13,8 +13,8 @@ MODBUSPORT = 502
 WEBDIRECTORY = "webui"
 MODBUS_BITCOUNT = 100
 MODBUS_WORDCOUNT = 100
-MODBUS_ENABLE_RANDOM_NUMBER_POPULATION_BITS = True
-MODBUS_ENABLE_RANDOM_NUMBER_POPULATION_WORDS = True
+MODBUS_ENABLE_RANDOM_NUMBER_POPULATION_BITS = False
+MODBUS_ENABLE_RANDOM_NUMBER_POPULATION_WORDS = False
 MODBUS_RANDOM_NUMBER_COUNT_BITS = MODBUS_BITCOUNT
 MODBUS_RANDOM_NUMBER_COUNT_WORDS = MODBUS_WORDCOUNT
 MODBUS_RANDOM_NUMBER_START_BITS = 25
@@ -65,6 +65,13 @@ def setupAndStartModbusServer():
                 print(f"{'Bits':<20}{'Words'}")
                 for d1, d2 in itertools.zip_longest(sorted(bits), sorted(words), fillvalue='0'): 
                     print(f"{d1:>2}: {bits.get(d1, 'NA'):<15} {d2:>2}: {words.get(d2, 'NA')}")
+            
+            # if welding start goes HI. Set robot motion release HI
+            if bits.get(0):
+                sleep(0.5)
+                DataBank.set_bits(9, [True])
+            else:
+                DataBank.set_bits(9, [False])
             sleep(0.1)
 
     except Exception as e:
