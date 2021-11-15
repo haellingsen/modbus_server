@@ -2,9 +2,12 @@ var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
 	if (this.readyState == 4 && this.status == 200) {
 		var myObj = JSON.parse(this.responseText);
-		document.getElementById("bits").innerHTML = '<pre>' + JSON.stringify(myObj["bits"], null, 1).replace(/[{},]/g, '') + '</pre>';
-		document.getElementById("words").innerHTML = '<pre>' + JSON.stringify(myObj["words"], null, 1).replace(/[{},]/g, '') + '</pre>';
+		document.getElementById("coils").innerHTML = '<pre>' + JSON.stringify(myObj["coils"], undefined, 1).replace(/[{},]/g, '') + '</pre>';
+		document.getElementById("holding-registers").innerHTML = '<pre>' + JSON.stringify(myObj["holdingRegisters"], null, 1).replace(/[{},]/g, '') + '</pre>';
+		document.getElementById("discrete-inputs").innerHTML = '<pre>' + JSON.stringify(myObj["discreteInputs"], null, 1).replace(/[{},]/g, '') + '</pre>';
+		document.getElementById("input-registers").innerHTML = '<pre>' + JSON.stringify(myObj["inputRegisters"], null, 1).replace(/[{},]/g, '') + '</pre>';
 		document.getElementById("timestamp").innerHTML = '<pre>' + JSON.stringify(myObj["timestamp"], null, 1).replace(/[{},]/g, '') + '</pre>';
+
 	}
 };
 
@@ -16,5 +19,3 @@ function updatePage() {
 }
 
 setInterval(updatePage,1000);
-
-

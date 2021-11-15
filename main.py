@@ -11,16 +11,36 @@ from datetime import datetime
 WEBPORT = 8000
 MODBUSPORT = 502
 WEBDIRECTORY = "webui"
-MODBUS_BITCOUNT = 100
-MODBUS_WORDCOUNT = 100
-MODBUS_ENABLE_RANDOM_NUMBER_POPULATION_BITS = False
-MODBUS_ENABLE_RANDOM_NUMBER_POPULATION_WORDS = False
-MODBUS_RANDOM_NUMBER_COUNT_BITS = MODBUS_BITCOUNT
-MODBUS_RANDOM_NUMBER_COUNT_WORDS = MODBUS_WORDCOUNT
-MODBUS_RANDOM_NUMBER_START_BITS = 25
-MODBUS_RANDOM_NUMBER_START_WORDS = 25
+MODBUS_CO_COUNT = 30
+MODBUS_DI_COUNT = 30
+MODBUS_HR_COUNT = 30
+MODBUS_IR_COUNT = 30
 MODBUS_PRINT_TO_TERMINAL_ENABLED = False
 httpServerThread=""
+
+def fronius_logic():
+    start_welding = DataBank.get_coils(0)[0]
+    main_current_signal = DataBank.get_discrete_inputs(6)[0]
+        
+    if start_welding and not main_current_signal: # if welding started and not main current signal set (used to determine if welding is active on op panel)
+            sleep(0.4)
+            DataBank.set_discrete_inputs(6, [True])
+            DataBank.set_input_registers(0, [49914])
+            print(f"Turning welding process on.")
+            print(f"setting discrete input 6 to: {DataBank.get_discrete_inputs(6)}")
+            print(f"setting input register 0 to: {DataBank.get_input_registers(0)}")
+    elif not start_welding and main_current_signal: # if welding stopped
+            DataBank.set_discrete_inputs(6, [False])
+            DataBank.set_input_registers(0, [2])
+            print(f"Turning process off: {DataBank.get_discrete_inputs(6)}")
+            
+    if main_current_signal:
+        wirefeed_speed_command = DataBank.get_holding_registers(5)    
+        welding_voltage = uniform(22,24)
+        welding_current = uniform(230,250)
+        welding_wirefeed_speed = uniform(wirefeed_speed_command-1, wirefeed_speed_command+1)
+
+        
 
 def dict_to_json(filename, _dict):
     with open(filename, "w", encoding="utf-8") as f:
@@ -41,6 +61,11 @@ def setupThreadAndStartWebServer():
     httpServerThread.setDaemon(True)
     httpServerThread.start()
 
+def randomWord():
+    return uniform(0,65536)
+
+def randomBit():
+    return random() < 0.5
 
 def setupAndStartModbusServer():
     server = ModbusServer("0.0.0.0", MODBUSPORT, no_block=True)
@@ -49,26 +74,23 @@ def setupAndStartModbusServer():
         server.start()
         print("Modbus server is online")
 
-        while True:
-            if MODBUS_ENABLE_RANDOM_NUMBER_POPULATION_WORDS:
-                DataBank.set_words(MODBUS_RANDOM_NUMBER_START_WORDS, [uniform(0,65536) for i in range(MODBUS_RANDOM_NUMBER_COUNT_WORDS)])
-            if MODBUS_ENABLE_RANDOM_NUMBER_POPULATION_BITS:
-                DataBank.set_bits(MODBUS_RANDOM_NUMBER_START_BITS, [random() < 0.5 for i in range(MODBUS_RANDOM_NUMBER_COUNT_BITS)])
-            
-            words = dict(list(enumerate(DataBank.get_words(0, MODBUS_WORDCOUNT))))
-            bits = dict(list(enumerate(DataBank.get_bits(0, MODBUS_BITCOUNT)))) 
-            server_data = {"bits": bits, "words": words, "timestamp": datetime.now().isoformat()}
+        while True:     
+            fronius_logic()
+
+            holding_registers = dict(list(enumerate(DataBank.get_holding_registers(0, MODBUS_HR_COUNT))))
+            input_registers = dict(list(enumerate(DataBank.get_input_registers(0, MODBUS_IR_COUNT))))
+            coils = dict(list(enumerate(DataBank.get_coils(0, MODBUS_CO_COUNT)))) 
+            discrete_inputs = dict(list(enumerate(DataBank.get_discrete_inputs(0, MODBUS_DI_COUNT))))
+            server_data = {"coils": coils, "discreteInputs": discrete_inputs, "holdingRegisters": holding_registers, "inputRegisters": input_registers, "timestamp": datetime.now().isoformat()}
             dict_to_json("./webui/modbus.json", server_data)
+
             if MODBUS_PRINT_TO_TERMINAL_ENABLED:
                 os.system("cls" if os.name == "nt" else "clear")
                 print(json.dumps(bits, indent = 1), json.dumps(words, indent = 1))
                 print(f"{'Bits':<20}{'Words'}")
                 for d1, d2 in itertools.zip_longest(sorted(bits), sorted(words), fillvalue='0'): 
                     print(f"{d1:>2}: {bits.get(d1, 'NA'):<15} {d2:>2}: {words.get(d2, 'NA')}")
-            
-            # TODO if welding start goes HI. Set robot motion release HI. 
-            # Need to route different modbus fc codes to different addres ranges internally first
-            
+                        
             sleep(0.1)
 
     except Exception as e:
