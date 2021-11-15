@@ -35,10 +35,12 @@ def fronius_logic():
             print(f"Turning process off: {DataBank.get_discrete_inputs(6)}")
             
     if main_current_signal:
-        wirefeed_speed_command = DataBank.get_holding_registers(5)    
+        wirefeed_speed_command = DataBank.get_holding_registers(5)[0]
         welding_voltage = uniform(22,24)
         welding_current = uniform(230,250)
         welding_wirefeed_speed = uniform(wirefeed_speed_command-1, wirefeed_speed_command+1)
+        DataBank.set_input_registers(4, [int(welding_voltage*100), int(welding_current*10), int(welding_wirefeed_speed)])
+        #print(f"simulating welding with parameters: {welding_voltage} V,  {welding_current} A,  and {welding_wirefeed_speed/100} m/min.")
 
         
 
