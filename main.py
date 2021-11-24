@@ -18,10 +18,10 @@ MODBUS_IR_COUNT = 30
 MODBUS_PRINT_TO_TERMINAL_ENABLED = False
 httpServerThread=""
 
-def fronius_logic():
+def fronius_logic(simulation_active, simulation_active_old):
     start_welding = DataBank.get_coils(0)[0]
     main_current_signal = DataBank.get_discrete_inputs(6)[0]
-        
+    simulation_active_changed = simulation_active != simulation_active_old
     if start_welding and not main_current_signal: # if welding started and not main current signal set (used to determine if welding is active on op panel)
             sleep(0.4)
             DataBank.set_discrete_inputs(6, [True])
@@ -42,7 +42,10 @@ def fronius_logic():
         DataBank.set_input_registers(4, [int(welding_voltage*100), int(welding_current*10), int(welding_wirefeed_speed)])
         #print(f"simulating welding with parameters: {welding_voltage} V,  {welding_current} A,  and {welding_wirefeed_speed/100} m/min.")
 
-        
+    if simulation_active_changed and simulation_active:
+        DataBank.set_holding_registers(1, [DataBank.get_holding_registers(1)[0] + 1])
+    elif not simulation_active and simulation_active_changed:
+        DataBank.set_holding_registers(1, [DataBank.get_holding_registers(1)[0] - 1])
 
 def dict_to_json(filename, _dict):
     with open(filename, "w", encoding="utf-8") as f:
@@ -70,14 +73,19 @@ def randomBit():
     return random() < 0.5
 
 def setupAndStartModbusServer():
+    simulation_active=False
+    simulation_active_old=False
+
     server = ModbusServer("0.0.0.0", MODBUSPORT, no_block=True)
     try:    
         print("Starting modbus server...")
         server.start()
         print("Modbus server is online")
 
-        while True:     
-            fronius_logic()
+        while True:
+            simulation_active = DataBank.get_coils(16)[0]
+
+            fronius_logic(simulation_active, simulation_active_old)
 
             holding_registers = dict(list(enumerate(DataBank.get_holding_registers(0, MODBUS_HR_COUNT))))
             input_registers = dict(list(enumerate(DataBank.get_input_registers(0, MODBUS_IR_COUNT))))
@@ -94,6 +102,7 @@ def setupAndStartModbusServer():
                     print(f"{d1:>2}: {bits.get(d1, 'NA'):<15} {d2:>2}: {words.get(d2, 'NA')}")
                         
             sleep(0.1)
+            simulation_active_old=simulation_active
 
     except Exception as e:
             print(e)
