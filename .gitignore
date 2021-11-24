@@ -2,6 +2,7 @@ venv
 webui/modbus.json
 *.py[cod]
 __pycache__/
+*.pyc
 
 # C extensions
 *.so
