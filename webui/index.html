@@ -1,40 +1,20 @@
 <!DOCTYPE html>
 <html>
-<style type="text/css">
-        .container {
-		display: flex;
-		flex-wrap: wrap;
-        }
-	.break {
-		flex-basis: 100%;
-		width: 0;
-	}
-	.item { width: 20%; 
-		margin-bottom: 1%;
-	}
-</style>
+
 <head>
-<title>PR Modbus Slave Simulator</title>
-<script type="text/javascript" src="./index.js"></script>
+    <title>PR Modbus Slave Simulator</title>
+    <script type="text/javascript" src="./index.js"></script>
+    <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
+    <h1 class="app-title">PR Modbus Slave Simulator</h1>
+    <div class="timestamp">
+        <span>Enter update interval in ms:</span><input type="number" name="update-interval" id="update-interval" value="500" onchange="updateGetDataInterval(this)">
+    </div>
 
-<h1>PR Modbus Slave Simulator</h1>
-<div class="container">
-	<div class="item">Timestamp: <span id="timestamp"></span></div>
-	<div class="break"></div>
-	<div class="item">Coils</div>
-	<div class="item">Holding Registers</div><br>
-	<div class="item">Discrete Inputs</div>
-	<div class="item">Input Registers</div><br>
-	<div class="break"></div>
-	<div class="item" id="coils"></div>
-	<div class="item" id="holding-registers"></div>
-	<div class="item" id="discrete-inputs"></div>
-	<div class="item" id="input-registers"></div>
-</div>
-<div class="container" id="showData">
-
-</div>
+    <div id="app"></div>
 </body>
+
 </html>
