@@ -17,6 +17,7 @@ app = Flask(__name__)
 CORS(app)
 
 WEBPORT = 8000
+FLASKPORT=8080
 MODBUSPORT = 502
 WEBDIRECTORY = "webui"
 MODBUS_CO_COUNT = 30
@@ -180,7 +181,7 @@ def main():
     modbusServerThread = threading.Thread(target=setupAndStartModbusServer)
     modbusServerThread.setDaemon(True)
     modbusServerThread.start()
-    app.run(host="0.0.0.0", port=8080)
+    app.run(host="0.0.0.0", port=FLASKPORT)
 
 if __name__ == '__main__':
     main()
