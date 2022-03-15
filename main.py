@@ -76,6 +76,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 def runHttpServer():
     with socketserver.TCPServer(("", WEBPORT), Handler) as httpd:
         print("serving web ui at port", WEBPORT)
+        socketserver.TCPServer.allow_reuse_address = True
         httpd.serve_forever()
 
 
