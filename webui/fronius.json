@@ -1,0 +1,832 @@
+{
+    "signals": [{
+            "type": "holdingRegister",
+            "address": {
+                "absolute": 64,
+                "register": 4
+            },
+            "name": "Welding characteristic-/Job number",
+            "value": 0
+        },
+        {
+            "type": "holdingRegister",
+            "address": {
+                "absolute": 80,
+                "register": 5
+            },
+            "name": "Wire feed speed command value",
+            "value": 0
+        },
+        {
+            "type": "holdingRegister",
+            "address": {
+                "absolute": 96,
+                "register": 6
+            },
+            "name": "Arclength correction",
+            "value": 0
+        },
+        {
+            "type": "holdingRegister",
+            "address": {
+                "absolute": 112,
+                "register": 7
+            },
+            "name": "Pulse-/dynamic correction",
+            "value": 0
+        },
+        {
+            "type": "holdingRegister",
+            "address": {
+                "absolute": 128,
+                "register": 8
+            },
+            "name": "Wire retract correction",
+            "value": 0
+        },
+        {
+            "type": "holdingRegister",
+            "address": {
+                "absolute": 160,
+                "register": 10
+            },
+            "name": "Process controlled correction",
+            "value": 0
+        },
+        {
+            "type": "holdingRegister",
+            "address": {
+                "absolute": 304,
+                "register": 19
+            },
+            "name": "Seam number",
+            "value": 0
+        },
+        {
+            "type": "inputRegister",
+            "address": {
+                "absolute": 64,
+                "register": 4
+            },
+            "name": "Welding voltage",
+            "value": 0
+        },
+        {
+            "type": "inputRegister",
+            "address": {
+                "absolute": 80,
+                "register": 5
+            },
+            "name": "Welding current",
+            "value": 0
+        },
+        {
+            "type": "inputRegister",
+            "address": {
+                "absolute": 96,
+                "register": 6
+            },
+            "name": "Wire feed speed",
+            "value": 0
+        },
+        {
+            "type": "inputRegister",
+            "address": {
+                "absolute": 112,
+                "register": 7
+            },
+            "name": "Actual real value for seam tracking",
+            "value": 0
+        },
+        {
+            "type": "inputRegister",
+            "address": {
+                "absolute": 128,
+                "register": 8
+            },
+            "name": "Error number",
+            "value": 0
+        },
+        {
+            "type": "inputRegister",
+            "address": {
+                "absolute": 160,
+                "register": 10
+            },
+            "name": "Motor current M1",
+            "value": 0
+        },
+        {
+            "type": "inputRegister",
+            "address": {
+                "absolute": 176,
+                "register": 11
+            },
+            "name": "inputRegister_11",
+            "value": 0
+        },
+        {
+            "type": "inputRegister",
+            "address": {
+                "absolute": 192,
+                "register": 12
+            },
+            "name": "inputRegister_12",
+            "value": 0
+        },
+        {
+            "type": "inputRegister",
+            "address": {
+                "absolute": 208,
+                "register": 13
+            },
+            "name": "inputRegister_13",
+            "value": 0
+        },
+        {
+            "type": "inputRegister",
+            "address": {
+                "absolute": 224,
+                "register": 14
+            },
+            "name": "inputRegister_14",
+            "value": 0
+        },
+        {
+            "type": "inputRegister",
+            "address": {
+                "absolute": 240,
+                "register": 15
+            },
+            "name": "inputRegister_15",
+            "value": 0
+        },
+        {
+            "type": "inputRegister",
+            "address": {
+                "absolute": 256,
+                "register": 16
+            },
+            "name": "inputRegister_16",
+            "value": 0
+        },
+        {
+            "type": "inputRegister",
+            "address": {
+                "absolute": 272,
+                "register": 17
+            },
+            "name": "inputRegister_17",
+            "value": 0
+        },
+        {
+            "type": "inputRegister",
+            "address": {
+                "absolute": 288,
+                "register": 18
+            },
+            "name": "inputRegister_18",
+            "value": 0
+        },
+        {
+            "type": "inputRegister",
+            "address": {
+                "absolute": 304,
+                "register": 19
+            },
+            "name": "inputRegister_19",
+            "value": 0
+        },
+        {
+            "type": "inputRegister",
+            "address": {
+                "absolute": 320,
+                "register": 20
+            },
+            "name": "inputRegister_20",
+            "value": 0
+        },
+        {
+            "type": "inputRegister",
+            "address": {
+                "absolute": 336,
+                "register": 21
+            },
+            "name": "inputRegister_21",
+            "value": 0
+        },
+        {
+            "type": "inputRegister",
+            "address": {
+                "absolute": 352,
+                "register": 22
+            },
+            "name": "inputRegister_22",
+            "value": 0
+        },
+        {
+            "type": "inputRegister",
+            "address": {
+                "absolute": 368,
+                "register": 23
+            },
+            "name": "inputRegister_23",
+            "value": 0
+        },
+        {
+            "type": "inputRegister",
+            "address": {
+                "absolute": 384,
+                "register": 24
+            },
+            "name": "inputRegister_24",
+            "value": 0
+        },
+        {
+            "type": "inputRegister",
+            "address": {
+                "absolute": 400,
+                "register": 25
+            },
+            "name": "inputRegister_25",
+            "value": 0
+        },
+        {
+            "type": "inputRegister",
+            "address": {
+                "absolute": 416,
+                "register": 26
+            },
+            "name": "inputRegister_26",
+            "value": 0
+        },
+        {
+            "type": "inputRegister",
+            "address": {
+                "absolute": 432,
+                "register": 27
+            },
+            "name": "inputRegister_27",
+            "value": 0
+        },
+        {
+            "type": "inputRegister",
+            "address": {
+                "absolute": 448,
+                "register": 28
+            },
+            "name": "inputRegister_28",
+            "value": 0
+        },
+        {
+            "type": "inputRegister",
+            "address": {
+                "absolute": 464,
+                "register": 29
+            },
+            "name": "inputRegister_29",
+            "value": 0
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 0,
+                "register": 0
+            },
+            "name": "discreteInput_0",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 1,
+                "register": 0
+            },
+            "name": "discreteInput_1",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 2,
+                "register": 0
+            },
+            "name": "discreteInput_2",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 3,
+                "register": 0
+            },
+            "name": "discreteInput_3",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 4,
+                "register": 0
+            },
+            "name": "discreteInput_4",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 5,
+                "register": 0
+            },
+            "name": "discreteInput_5",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 6,
+                "register": 0
+            },
+            "name": "discreteInput_6",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 7,
+                "register": 0
+            },
+            "name": "discreteInput_7",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 8,
+                "register": 0
+            },
+            "name": "discreteInput_8",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 9,
+                "register": 0
+            },
+            "name": "discreteInput_9",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 10,
+                "register": 0
+            },
+            "name": "discreteInput_10",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 11,
+                "register": 0
+            },
+            "name": "discreteInput_11",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 12,
+                "register": 0
+            },
+            "name": "discreteInput_12",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 13,
+                "register": 0
+            },
+            "name": "discreteInput_13",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 14,
+                "register": 0
+            },
+            "name": "discreteInput_14",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 15,
+                "register": 0
+            },
+            "name": "discreteInput_15",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 16,
+                "register": 1
+            },
+            "name": "discreteInput_16",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 17,
+                "register": 1
+            },
+            "name": "discreteInput_17",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 18,
+                "register": 1
+            },
+            "name": "discreteInput_18",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 19,
+                "register": 1
+            },
+            "name": "discreteInput_19",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 20,
+                "register": 1
+            },
+            "name": "discreteInput_20",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 21,
+                "register": 1
+            },
+            "name": "discreteInput_21",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 22,
+                "register": 1
+            },
+            "name": "discreteInput_22",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 23,
+                "register": 1
+            },
+            "name": "discreteInput_23",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 24,
+                "register": 1
+            },
+            "name": "discreteInput_24",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 25,
+                "register": 1
+            },
+            "name": "discreteInput_25",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 26,
+                "register": 1
+            },
+            "name": "discreteInput_26",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 27,
+                "register": 1
+            },
+            "name": "discreteInput_27",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 28,
+                "register": 1
+            },
+            "name": "discreteInput_28",
+            "value": false
+        },
+        {
+            "type": "discreteInput",
+            "address": {
+                "absolute": 29,
+                "register": 1
+            },
+            "name": "discreteInput_29",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 0,
+                "register": 0
+            },
+            "name": "coil_0",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 1,
+                "register": 0
+            },
+            "name": "coil_1",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 2,
+                "register": 0
+            },
+            "name": "coil_2",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 3,
+                "register": 0
+            },
+            "name": "coil_3",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 4,
+                "register": 0
+            },
+            "name": "coil_4",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 5,
+                "register": 0
+            },
+            "name": "coil_5",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 6,
+                "register": 0
+            },
+            "name": "coil_6",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 7,
+                "register": 0
+            },
+            "name": "coil_7",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 8,
+                "register": 0
+            },
+            "name": "coil_8",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 9,
+                "register": 0
+            },
+            "name": "coil_9",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 10,
+                "register": 0
+            },
+            "name": "coil_10",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 11,
+                "register": 0
+            },
+            "name": "coil_11",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 12,
+                "register": 0
+            },
+            "name": "coil_12",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 13,
+                "register": 0
+            },
+            "name": "coil_13",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 14,
+                "register": 0
+            },
+            "name": "coil_14",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 15,
+                "register": 0
+            },
+            "name": "coil_15",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 16,
+                "register": 1
+            },
+            "name": "coil_16",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 17,
+                "register": 1
+            },
+            "name": "coil_17",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 18,
+                "register": 1
+            },
+            "name": "coil_18",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 19,
+                "register": 1
+            },
+            "name": "coil_19",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 20,
+                "register": 1
+            },
+            "name": "coil_20",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 21,
+                "register": 1
+            },
+            "name": "coil_21",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 22,
+                "register": 1
+            },
+            "name": "coil_22",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 23,
+                "register": 1
+            },
+            "name": "coil_23",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 24,
+                "register": 1
+            },
+            "name": "coil_24",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 25,
+                "register": 1
+            },
+            "name": "coil_25",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 26,
+                "register": 1
+            },
+            "name": "coil_26",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 27,
+                "register": 1
+            },
+            "name": "coil_27",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 28,
+                "register": 1
+            },
+            "name": "coil_28",
+            "value": false
+        },
+        {
+            "type": "coil",
+            "address": {
+                "absolute": 29,
+                "register": 1
+            },
+            "name": "coil_29",
+            "value": false
+        }
+    ],
+    "timestamp": "2022-03-15T16:29:43.183604"
+}
