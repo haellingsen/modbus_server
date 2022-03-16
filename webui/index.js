@@ -1,3 +1,4 @@
+const SERVER_IP = '192.168.101.70'
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -68,7 +69,7 @@ var refreshPage = function(modbusData) {
 
 
 function updatePage() {
-    xmlhttp.open("GET", 'http://localhost:8080/signals', true);
+    xmlhttp.open("GET", 'http://'+ SERVER_IP +':8088/signals', true);
     xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xmlhttp.send();
 }
