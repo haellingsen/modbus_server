@@ -21,7 +21,17 @@ img {
     text-align: center;
     font-weight: normal;
     font-size: 1rem;
-    margin: 1em 0 1em 0
+    margin: 0.5em auto;
+    padding: 10px;
+    max-width: 30%;
+    background-color: #FFF;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, .1);
+    overflow: hidden;
+}
+
+.element {
+    margin: 1em auto;
+    font-size: 2rem;
 }
 
 .signal-type-title {

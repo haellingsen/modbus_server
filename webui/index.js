@@ -46,7 +46,13 @@ var refreshPage = function(modbusData) {
 
 	document.getElementById("app").innerHTML = `
 	<div class="timestamp">
-		<strong>Timestamp:</strong> ${modbusData.timestamp}
+    <div class="element">
+      <strong>${modbusData.powerSourceType}</strong>
+    </div>
+
+    <div>
+      <strong>Timestamp:</strong> ${modbusData.timestamp}
+    </div>
 	</div>
 	
 	<div class="row">
