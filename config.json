@@ -1,0 +1,4 @@
+{
+    "powerSourceTypes": ["Fronius", "Kemppi"],
+    "activePowerSourceType": "Fronius"
+}
