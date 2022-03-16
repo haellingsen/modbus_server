@@ -1,0 +1,550 @@
+[{
+        "type": "holdingRegister",
+        "address": {
+            "absolute": 64,
+            "register": 4
+        },
+        "name": "Welding characteristic-/Job number",
+        "value": 0
+    },
+    {
+        "type": "holdingRegister",
+        "address": {
+            "absolute": 80,
+            "register": 5
+        },
+        "name": "Wire feed speed command value",
+        "value": 0
+    },
+    {
+        "type": "holdingRegister",
+        "address": {
+            "absolute": 96,
+            "register": 6
+        },
+        "name": "Arclength correction",
+        "value": 0
+    },
+    {
+        "type": "holdingRegister",
+        "address": {
+            "absolute": 112,
+            "register": 7
+        },
+        "name": "Pulse-/dynamic correction",
+        "value": 0
+    },
+    {
+        "type": "holdingRegister",
+        "address": {
+            "absolute": 128,
+            "register": 8
+        },
+        "name": "Wire retract correction",
+        "value": 0
+    },
+    {
+        "type": "holdingRegister",
+        "address": {
+            "absolute": 160,
+            "register": 10
+        },
+        "name": "Process controlled correction",
+        "value": 0
+    },
+    {
+        "type": "holdingRegister",
+        "address": {
+            "absolute": 304,
+            "register": 19
+        },
+        "name": "Seam number",
+        "value": 0
+    },
+    {
+        "type": "inputRegister",
+        "address": {
+            "absolute": 64,
+            "register": 4
+        },
+        "name": "Welding voltage",
+        "value": 0
+    },
+    {
+        "type": "inputRegister",
+        "address": {
+            "absolute": 80,
+            "register": 5
+        },
+        "name": "Welding current",
+        "value": 0
+    },
+    {
+        "type": "inputRegister",
+        "address": {
+            "absolute": 96,
+            "register": 6
+        },
+        "name": "Wire feed speed",
+        "value": 0
+    },
+    {
+        "type": "inputRegister",
+        "address": {
+            "absolute": 112,
+            "register": 7
+        },
+        "name": "Actual real value for seam tracking",
+        "value": 0
+    },
+    {
+        "type": "inputRegister",
+        "address": {
+            "absolute": 128,
+            "register": 8
+        },
+        "name": "Error number",
+        "value": 0
+    },
+    {
+        "type": "inputRegister",
+        "address": {
+            "absolute": 160,
+            "register": 10
+        },
+        "name": "Motor current M1",
+        "value": 0
+    },
+    {
+        "type": "inputRegister",
+        "address": {
+            "absolute": 176,
+            "register": 11
+        },
+        "name": "Motor current M2",
+        "value": 0
+    },
+    {
+        "type": "inputRegister",
+        "address": {
+            "absolute": 192,
+            "register": 12
+        },
+        "name": "Motor current M3",
+        "value": 0
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 0,
+            "register": 0
+        },
+        "name": "Heartbeat Powersource",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 1,
+            "register": 0
+        },
+        "name": "Power source ready",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 3,
+            "register": 0
+        },
+        "name": "Process active",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 4,
+            "register": 0
+        },
+        "name": "Current flow",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 5,
+            "register": 0
+        },
+        "name": "Arc stable- / touch signal",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 6,
+            "register": 0
+        },
+        "name": "Main current signal",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 7,
+            "register": 0
+        },
+        "name": "Touch signal",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 8,
+            "register": 0
+        },
+        "name": "Collisionbox active",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 9,
+            "register": 0
+        },
+        "name": "Robot Motion Release",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 10,
+            "register": 0
+        },
+        "name": "Short circuit timeout",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 14,
+            "register": 0
+        },
+        "name": "Characteristic number valid",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 15,
+            "register": 0
+        },
+        "name": "Torch body gripped",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 16,
+            "register": 1
+        },
+        "name": "Command value out of range",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 17,
+            "register": 1
+        },
+        "name": "Correction out of range",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 19,
+            "register": 1
+        },
+        "name": "Limitsignal",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 22,
+            "register": 1
+        },
+        "name": "Main supply status",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 24,
+            "register": 1
+        },
+        "name": "Sensor status 1",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 25,
+            "register": 1
+        },
+        "name": "Sensor status 2",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 26,
+            "register": 1
+        },
+        "name": "Sensor status 3",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 48,
+            "register": 1
+        },
+        "name": "Process Bit 0",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 49,
+            "register": 1
+        },
+        "name": "Process Bit 1",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 50,
+            "register": 1
+        },
+        "name": "Process Bit 2",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 51,
+            "register": 1
+        },
+        "name": "Process Bit 3",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 52,
+            "register": 1
+        },
+        "name": "Process Bit 4",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 0,
+            "register": 0
+        },
+        "name": "Welding Start",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 1,
+            "register": 0
+        },
+        "name": "Robot ready",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 2,
+            "register": 0
+        },
+        "name": "Working mode Bit 0",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 3,
+            "register": 0
+        },
+        "name": "Working mode Bit 1",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 4,
+            "register": 0
+        },
+        "name": "Working mode Bit 2",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 5,
+            "register": 0
+        },
+        "name": "Working mode Bit 3",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 6,
+            "register": 0
+        },
+        "name": "Working mode Bit 4",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 8,
+            "register": 0
+        },
+        "name": "Gas on",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 9,
+            "register": 0
+        },
+        "name": "Wire forward",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 10,
+            "register": 0
+        },
+        "name": "Wire backward",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 11,
+            "register": 0
+        },
+        "name": "Error quit",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 12,
+            "register": 0
+        },
+        "name": "Touch sensing",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 13,
+            "register": 0
+        },
+        "name": "Torch blow out",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 14,
+            "register": 0
+        },
+        "name": "Processline selection Bit 0 ",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 15,
+            "register": 0
+        },
+        "name": "Processline selection Bit 1",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 16,
+            "register": 1
+        },
+        "name": "Welding Simulation",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 17,
+            "register": 1
+        },
+        "name": "Synchro pulse on",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 22,
+            "register": 1
+        },
+        "name": "Wire brake on",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 23,
+            "register": 1
+        },
+        "name": "Torchbody Xchange",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 25,
+            "register": 1
+        },
+        "name": "Teach mode",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 37,
+            "register": 1
+        },
+        "name": "Documentation mode",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 47,
+            "register": 1
+        },
+        "name": "Disable process controlled correction",
+        "value": false
+    }
+]

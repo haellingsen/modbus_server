@@ -1,0 +1,478 @@
+[{
+        "type": "holdingRegister",
+        "address": {
+            "absolute": 0,
+            "register": 0
+        },
+        "name": "WireFeedSpeed",
+        "value": false
+    },
+    {
+        "type": "holdingRegister",
+        "address": {
+            "absolute": 16,
+            "register": 1
+        },
+        "name": "Voltage/FineTuning",
+        "value": false
+    },
+    {
+        "type": "holdingRegister",
+        "address": {
+            "absolute": 32,
+            "register": 2
+        },
+        "name": "MemoryChannel",
+        "value": false
+    },
+    {
+        "type": "holdingRegister",
+        "address": {
+            "absolute": 40,
+            "register": 2
+        },
+        "name": "Dynamics",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 48,
+            "register": 3
+        },
+        "name": "StartWelding",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 49,
+            "register": 3
+        },
+        "name": "SimulationMode",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 50,
+            "register": 3
+        },
+        "name": "WireInch",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 51,
+            "register": 3
+        },
+        "name": "WireRetract",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 52,
+            "register": 3
+        },
+        "name": "GasBlow",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 53,
+            "register": 3
+        },
+        "name": "AirBlow",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 54,
+            "register": 3
+        },
+        "name": "TouchSensorToolSel",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 55,
+            "register": 3
+        },
+        "name": "TouchSensorOn",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 56,
+            "register": 4
+        },
+        "name": "OnlineControl",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 57,
+            "register": 4
+        },
+        "name": "ErrorReset",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 58,
+            "register": 4
+        },
+        "name": "WireFeederSelect",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 59,
+            "register": 4
+        },
+        "name": "WatchDog",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 60,
+            "register": 4
+        },
+        "name": "HotStartOn",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 61,
+            "register": 4
+        },
+        "name": "CraterFillOn",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 64,
+            "register": 4
+        },
+        "name": "DigitalOutput1",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 65,
+            "register": 4
+        },
+        "name": "DigitalOutput2",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 66,
+            "register": 4
+        },
+        "name": "DigitalOutput3",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 67,
+            "register": 4
+        },
+        "name": "DigitalOutput4",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 68,
+            "register": 4
+        },
+        "name": "DigitalOutput5",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 69,
+            "register": 4
+        },
+        "name": "DigitalOutput6",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 70,
+            "register": 4
+        },
+        "name": "DigitalOutput7",
+        "value": false
+    },
+    {
+        "type": "coil",
+        "address": {
+            "absolute": 71,
+            "register": 4
+        },
+        "name": "DigitalOutput8",
+        "value": false
+    },
+    {
+        "type": "inputRegister",
+        "address": {
+            "absolute": 0,
+            "register": 0
+        },
+        "name": "WeldingCurrent",
+        "value": false
+    },
+    {
+        "type": "inputRegister",
+        "address": {
+            "absolute": 16,
+            "register": 1
+        },
+        "name": "WeldingVoltage",
+        "value": false
+    },
+    {
+        "type": "inputRegister",
+        "address": {
+            "absolute": 32,
+            "register": 2
+        },
+        "name": "ErrorNumber",
+        "value": false
+    },
+    {
+        "type": "inputRegister",
+        "address": {
+            "absolute": 40,
+            "register": 2
+        },
+        "name": "WeldingWireFeedSpeed",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 48,
+            "register": 3
+        },
+        "name": "Ready",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 49,
+            "register": 3
+        },
+        "name": "PowerSourceReady",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 50,
+            "register": 3
+        },
+        "name": "CycleOn",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 51,
+            "register": 3
+        },
+        "name": "ArcOn",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 52,
+            "register": 3
+        },
+        "name": "GasFlowOk",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 55,
+            "register": 3
+        },
+        "name": "TouchSensed",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 56,
+            "register": 3
+        },
+        "name": "GateDoorOpen",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 57,
+            "register": 3
+        },
+        "name": "Error",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 58,
+            "register": 3
+        },
+        "name": "CollisionDetected",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 64,
+            "register": 4
+        },
+        "name": "DigitalInput1",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 65,
+            "register": 4
+        },
+        "name": "DigitalInput2",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 66,
+            "register": 4
+        },
+        "name": "DigitalInput3",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 67,
+            "register": 4
+        },
+        "name": "DigitalInput4",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 68,
+            "register": 4
+        },
+        "name": "DigitalInput5",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 69,
+            "register": 4
+        },
+        "name": "DigitalInput6",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 70,
+            "register": 4
+        },
+        "name": "DigitalInput7",
+        "value": false
+    },
+    {
+        "type": "discreteInput",
+        "address": {
+            "absolute": 71,
+            "register": 4
+        },
+        "name": "DigitalInput8",
+        "value": false
+    },
+    {
+        "type": "inputRegister",
+        "address": {
+            "absolute": 72,
+            "register": 4
+        },
+        "name": "TAST",
+        "value": false
+    },
+    {
+        "type": "inputRegister",
+        "address": {
+            "absolute": 80,
+            "register": 5
+        },
+        "name": "TAST",
+        "value": false
+    },
+    {
+        "type": "inputRegister",
+        "address": {
+            "absolute": 88,
+            "register": 5
+        },
+        "name": "GasFlowRate",
+        "value": false
+    },
+    {
+        "type": "inputRegister",
+        "address": {
+            "absolute": 96,
+            "register": 6
+        },
+        "name": "GasFlowRate",
+        "value": false
+    },
+    {
+        "type": "inputRegister",
+        "address": {
+            "absolute": 104,
+            "register": 6
+        },
+        "name": "MotorCurrent",
+        "value": false
+    },
+    {
+        "type": "inputRegister",
+        "address": {
+            "absolute": 112,
+            "register": 7
+        },
+        "name": "WeldingProcess",
+        "value": false
+    }
+]
