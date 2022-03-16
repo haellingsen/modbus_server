@@ -1,10 +1,9 @@
 #!./venv/bin/python
+from ast import Lambda
 from pyModbusTCP.server import ModbusServer, DataBank
 from time import sleep
 from random import uniform, random
-import os
 import json
-import itertools
 import http.server
 import socketserver
 import threading
@@ -25,6 +24,7 @@ MODBUS_HR_COUNT = 30
 MODBUS_IR_COUNT = 30
 MODBUS_PRINT_TO_TERMINAL_ENABLED = False
 httpServerThread = ""
+active_power_source_type = ""
 
 
 def fronius_logic(simulation_active, simulation_active_old):
@@ -67,6 +67,9 @@ def dict_to_json(filename, _dict):
     with open(filename, "w", encoding="utf-8") as f:
         return json.dump(_dict, f)
 
+def json_to_dict(filename):
+    with open(filename, 'r', encoding="utf-8") as f:
+        return json.load(f)
 
 class Handler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
@@ -96,56 +99,33 @@ def randomBit():
 
 @app.route('/signals')
 def get_signal_dict():
-    holding_registers = DataBank.get_holding_registers(0, MODBUS_HR_COUNT)
-    input_registers = DataBank.get_input_registers(0, MODBUS_IR_COUNT)
-    coils = DataBank.get_coils(0, MODBUS_CO_COUNT)
-    discrete_inputs = DataBank.get_discrete_inputs(0, MODBUS_DI_COUNT)
+    global active_power_source_type
+    active_power_source_type=json_to_dict('./config.json').get("activePowerSourceType")
 
-    signal_list = [{
-                "type": "holdingRegister",
-                "address": {
-                    "absolute": word_address * 16,
-                    "register": word_address},
-                "name": f"holdingRegister_{word_address}",
-                "value": value
-            } for (word_address, value) in enumerate(holding_registers)]
+    signal_mapping={
+        "holdingRegister": (lambda address : DataBank.get_holding_registers(address)[0]),
+        "inputRegister": (lambda address : DataBank.get_input_registers(address)[0]),
+        "discreteInput": (lambda address : DataBank.get_discrete_inputs(address)[0]),
+        "coil": (lambda address : DataBank.get_coils(address)[0])
+    }
+    power_source_signals={}
+    if active_power_source_type=="Fronius":
+        power_source_signals = json_to_dict('./powersourcetypes/fronius.json')
+    elif active_power_source_type=="Kemppi":
+        power_source_signals = json_to_dict('./powersourcetypes/kemppi.json')
 
-    signal_list.extend(
-        [
-            {
-                "type": "inputRegister",
-                "address": {
-                    "absolute": word_address * 16,
-                    "register": word_address},
-                "name": f"inputRegister_{word_address}",
-                "value": value
-            } for (word_address, value) in enumerate(input_registers)])
+    for signal in power_source_signals:
+        if signal.get("type") in ["coil", "discreteInput"]:
+            signal["value"] = signal_mapping.get(signal.get("type"))(signal.get("address").get("absolute"))
+            #print(signal.get("name"), signal.get("type"), signal.get("address").get("absolute"), signal_mapping.get(signal.get("type"))(signal.get("address").get("absolute")))
+        elif signal.get("type") in ["holdingRegister", "inputRegister"]:
+            signal["value"] = signal_mapping.get(signal.get("type"))(signal.get("address").get("register"))
+            #print(signal.get("name"), signal.get("type"), signal.get("address").get("register"), signal_mapping.get(signal.get("type"))(signal.get("address").get("register")))
 
-    signal_list.extend(
-        [
-            {
-                "type": "discreteInput",
-                "address": {
-                    "absolute": bit_address,
-                    "register": int(bit_address/16)},
-                "name": f"discreteInput_{bit_address}",
-                "value": value
-            } for (bit_address, value) in enumerate(discrete_inputs)])
-
-    signal_list.extend(
-        [
-            {
-                "type": "coil",
-                "address": {
-                    "absolute": bit_address,
-                    "register": int(bit_address/16)},
-                "name": f"coil_{bit_address}",
-                "value": value
-            } for (bit_address, value) in enumerate(coils)])
-
-
+    
     return {
-        "signals": signal_list,
+        "powerSourceType": active_power_source_type,
+        "signals": power_source_signals,
         "timestamp": datetime.now().isoformat()
     }
 
@@ -153,20 +133,27 @@ def get_signal_dict():
 def setupAndStartModbusServer():
     simulation_active = False
     simulation_active_old = False
+    global active_power_source_type
 
     server = ModbusServer("0.0.0.0", MODBUSPORT, no_block=True)
     try:
         print("Starting modbus server...")
         server.start()
-        print("Modbus server is online")
-
+        print("Modbus server is online at port: " + str(MODBUSPORT))
+        prev_active_power_source_type = "not set"
         while True:
-            simulation_active = DataBank.get_coils(16)[0]
+            if prev_active_power_source_type != active_power_source_type:
+                print(f"Running {active_power_source_type} Logic")
 
-            fronius_logic(simulation_active, simulation_active_old)
+            if active_power_source_type=="Fronius":
+                simulation_active = DataBank.get_coils(16)[0]
+                fronius_logic(simulation_active, simulation_active_old)
+                simulation_active_old = simulation_active
+            elif active_power_source_type=="Kemppi":
+                #TODO implement kemppi logic here
+                pass
 
-#            sleep(0.1)
-            simulation_active_old = simulation_active
+            prev_active_power_source_type = active_power_source_type
 
     except Exception as e:
         print(e)
@@ -176,6 +163,8 @@ def setupAndStartModbusServer():
 
 
 def main():
+    global active_power_source_type
+    active_power_source_type=json_to_dict('./config.json').get("activePowerSourceType")
     setupThreadAndStartWebServer()
     sleep(2)
     modbusServerThread = threading.Thread(target=setupAndStartModbusServer)
